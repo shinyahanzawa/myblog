@@ -8,16 +8,16 @@ use App\Post;
 class PostsController extends Controller
 {
     public function index(){
-        $posts = \App\Post::all();
+        // $posts = \App\Post::all();
         // $posts = Post::orderBy('created_at','desc')->get();
-        // $posts = Post::latest()->get();
         // $posts = [];
         // dd($posts->toArray());
         // return view('posts.index',['posts' => $posts]);
+        $posts = Post::latest()->get();
         return view('posts.index')->with('posts' , $posts);
     }
+    // $post = Post::findOrFail($id);
     public function show(Post $post){
-        // $post = Post::findOrFail($id);
         return view('posts.show')->with('post' , $post);
     }
 
@@ -25,11 +25,11 @@ class PostsController extends Controller
         return view('posts.create');
     }
     public function store(Request $request){
-        $this->validate($request,[
-            'title' => 'required|3',
-            'body' => 'required',
+        // $this->validate($request,[
+        //     'title' => 'required|3',
+        //     'body' => 'required',
 
-        ]);
+        // ]);
         $post = new Post();     
         $post->title = $request->title;
         $post->body = $request->body;
