@@ -1,8 +1,6 @@
 @extends('layouts.default')
-<link rel = "stylesheet" href=" ../css/styles.css">
 
-@section('title','$post->title')
-
+@section('title',$post->title)
 
 @section('content')
 <h1>
