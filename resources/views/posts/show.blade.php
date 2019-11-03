@@ -10,7 +10,7 @@
 <p>{!! nl2br(e($post->body)) !!}</p>
 
 
-<h2>Comments</h2>
+<h1>Comments</h1>
 <ul>
     @forelse($post->Comments as $comment)
     <li>
